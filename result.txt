@@ -1,0 +1,86 @@
+5000 elements 
+
+T1 102904
+Tp, p = 2 : 108708
+Acceleration Sp: 0.9466092651874747
+Efficiency Ep: 0.47330463259373734
+
+T1 101572
+Tp, p = 3 : 78949
+Acceleration Sp: 1.286552077923723
+Efficiency Ep: 0.428850692641241
+
+T1 105569
+Tp, p = 4 : 86377
+Acceleration Sp: 1.2221887771050164
+Efficiency Ep: 0.3055471942762541
+
+T1 111538
+Tp, p = 5 : 80116
+Acceleration Sp: 1.3922063008637475
+Efficiency Ep: 0.2784412601727495
+
+T1 108236
+Tp, p = 6 : 65287
+Acceleration Sp: 1.657849188965644
+Efficiency Ep: 0.27630819816094065
+
+T1 107577
+Tp, p = 7 : 68164
+Acceleration Sp: 1.5782084384719206
+Efficiency Ep: 0.22545834835313153
+
+java Tester -p 10000 -t 8 -q true
+Time: 246158
+T1 607722
+
+server test
+
+ java Tester -p 5000 -t 2 -q true
+T1 72412
+Tp, p = 2: 64358
+Acceleration Sp: 1.1251437272755525
+Efficiency Ep: 0.5625718636377762
+
+
+java Tester -p 5000 -t 3 -q true
+T1 72931
+Tp, p = 3: 53561
+Acceleration Sp: 1.3616437333134184
+Efficiency Ep: 0.45388124443780614
+
+java Tester -p 5000 -t 4 -q true
+T1 73444
+Tp, p = 4: 45364
+Acceleration Sp: 1.6189930341239749
+Efficiency Ep: 0.4047482585309937
+
+java Tester -p 5000 -t 5 -q true
+T1 72701
+Tp, p = 5: 36252
+Acceleration Sp: 2.005434182941631
+Efficiency Ep: 0.40108683658832617
+
+java Tester -p 5000 -t 6 -q true
+T1 73796
+Tp, p = 6: 33828
+Acceleration Sp: 2.1815064443656143
+Efficiency Ep: 0.36358440739426906
+
+java Tester -p 5000 -t 7 -q true
+T1 74774
+Tp, p = 7: 30991
+Acceleration Sp: 2.4127649962892455
+Efficiency Ep: 0.3446807137556065
+
+ java Tester -p 5000 -t 8 -q true
+T1 73406
+Tp, p = 8: 27679
+Acceleration Sp: 2.6520466779869216
+Efficiency Ep: 0.3315058347483652
+
+java Tester -p 5000 -t 9 -q true
+T1 72488
+Tp, p = 9: 25089
+Acceleration Sp: 2.8892343258001514
+Efficiency Ep: 0.3210260362000168

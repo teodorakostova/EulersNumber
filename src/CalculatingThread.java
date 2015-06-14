@@ -10,10 +10,12 @@ public class CalculatingThread implements Runnable {
 	private BigDecimal result;
 	private BigDecimal factoriel;
 	public long thread_id = 0;
+	private Map<String, BigDecimal> factorialCacheMap;
 	
-	public CalculatingThread(int start, int stop) {
+	public CalculatingThread(int start, int stop, Map<String, BigDecimal> factorialCacheMap) {
 		this.start = start;
 		this.stop = stop;
+		this.factorialCacheMap = factorialCacheMap;
 		this.result = BigDecimal.ZERO;
 	}
 	
@@ -39,14 +41,26 @@ public class CalculatingThread implements Runnable {
 	
 	public BigDecimal factoriel(int number) {
 		BigDecimal res = BigDecimal.ONE;
-		for (int i = 2; i <= number; i++) {
-			
+		if (number == 0) {
+			factorialCacheMap.put(String.valueOf(number), res);
+			return res;
+		}
+		int i = 1;
+		for (int j = number-1; j > 0; j--) {
+			if (factorialCacheMap.containsKey(String.valueOf(j))) {
+				res = factorialCacheMap.get(String.valueOf(j));
+				i = j;
+				break;
+			}
+		}
+		for (; i <= number; i++) {
 			res = res.multiply(new BigDecimal(i));
+			factorialCacheMap.put(String.valueOf(i), res);
 		}
 		return res;
 	}
 	
-	
+	// Tp, p = 2: 122 - 100
 	public void doAddition() {
 		int i = start;
 		while (i < stop) {

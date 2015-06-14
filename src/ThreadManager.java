@@ -18,7 +18,7 @@ public class ThreadManager {
 	private double Ep;
 	private BigDecimal result;
 	private boolean isQuiet;
-	private Map<Integer, BigDecimal> factorielCache = new HashMap<Integer, BigDecimal>();
+	
 	
 	
 	public ThreadManager(int numberOfThreads, int precision, boolean isQuiet) {
@@ -42,7 +42,7 @@ public class ThreadManager {
 		System.out.println("Tp, p = " + numberOfThreads + ": " + Tp);
 		System.out.println("Acceleration Sp: " + Sp);
 		System.out.println("Efficiency Ep: " + Ep);
-		System.out.println("Result " + result);
+		//System.out.println("Result " + result);
 	}
 	
 	//execution time for single-threaded calculation
@@ -77,8 +77,8 @@ public class ThreadManager {
 	
 	public void linearCalculation() {
 		long t1 = System.currentTimeMillis();
-		
-		CalculatingThread thread = new CalculatingThread(0, precision, factorielCache);
+		Map<String, BigDecimal> factorialCacheMap = new HashMap<String, BigDecimal>();
+		CalculatingThread thread = new CalculatingThread(0, precision, factorialCacheMap);
 		thread.doAddition();
 		
 		long t2 = System.currentTimeMillis();
@@ -87,12 +87,13 @@ public class ThreadManager {
 	}
 	
 	public void parallelCalculation() {
+		Map<String, BigDecimal> factorialCacheMap = new HashMap<String, BigDecimal>();
 		CalculatingThread calculatingThreads[] = new CalculatingThread[numberOfThreads];
-		calculatingThreads[0] = new CalculatingThread(0, precision/numberOfThreads, factorielCache);
+		calculatingThreads[0] = new CalculatingThread(0, precision/numberOfThreads, factorialCacheMap);
 		for (int i = 1; i < numberOfThreads; i++) {
 			int start = calculatingThreads[i-1].getStart() + precision/numberOfThreads;
 			int end = start + precision/numberOfThreads;
-			calculatingThreads[i] = new CalculatingThread(start, end, factorielCache);
+			calculatingThreads[i] = new CalculatingThread(start, end, factorialCacheMap);
 			
 		}
 		Thread workers[] = new Thread[numberOfThreads];

@@ -19,7 +19,7 @@ public class Tester {
 	public static void main(String[] args) throws InterruptedException {
 		Map<String, String> d = new HashMap<String, String>();
 		
-		d.put("-p", "100");
+		d.put("-p", "5000");
 		d.put("-q", "true");
 		d.put("-t", "2");
 		d.put("-o", DEFAULT_FILE_NAME);
